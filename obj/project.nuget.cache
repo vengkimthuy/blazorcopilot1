@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Al8hiSkFTseHjs7Ti65hndOOWbXzeDwE8v3JnMpuJ9w75u+45TIe5xbDAxKDgKe7eZy0iIqe0wIBVAPn2BrTUA==",
+  "dgSpecHash": "AjqlWoPWc0b86n+JjzJeSUj88wBMei+/Pa8WC2DDYGKwJ0IKHluSXJ5SXOCy6nlVjixYCMulqvxMVyfymRjiEQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kimthuy\\Desktop\\Chatbot-UI\\blazorChatBot\\BlazorChatBot.csproj",
+  "projectFilePath": "C:\\Users\\kimthuy\\Documents\\Chatbot-UI\\blazorChatBot\\BlazorChatBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kimthuy\\.nuget\\packages\\azure.ai.openai\\1.0.0-beta.5\\azure.ai.openai.1.0.0-beta.5.nupkg.sha512",
     "C:\\Users\\kimthuy\\.nuget\\packages\\azure.core\\1.30.0\\azure.core.1.30.0.nupkg.sha512",
