@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using BlazorCopilot1.Services;
+using Radzen;
 
-namespace BlazorCopilot1
+namespace BlazorChatBot
 {
     public class Program
     {
@@ -13,8 +13,8 @@ namespace BlazorCopilot1
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
-            builder.Services.AddSingleton<ChatService>();
-
+            builder.Services.AddScoped<TooltipService>();
+            builder.Services.AddHttpClient();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -1,6 +1,29 @@
-﻿@using BlazorCopilot1.Components
+﻿@using BlazorChatBot.Components
 @page "/"
 
-<PageTitle>Blazor Copilot</PageTitle>
+<div hidden="@(!HideLabel)">
+    <Chat />
+</div>
 
-<Chat/>
+<div hidden="@HideLabel" class="text-center mt-5">
+    <h1>Khmer ChatBot</h1>
+    <p>Click on the chat button to start chatting</p>
+</div>
+<div class="position-absolute" style="top: 50rem; right: 5rem">
+    @if (!HideLabel)
+    {  
+        <RadzenButton Icon="message" class="rounded rounded-circle" Style="width: 50px; height: 50px" ButtonStyle="ButtonStyle.Primary" Click="Toggle"/>
+    }
+    else
+    {
+        <RadzenButton Icon="close" class="rounded rounded-circle" Style="width: 50px; height: 50px" ButtonStyle="ButtonStyle.Primary" Click="Toggle" />
+    }
+</div>
+
+@code {
+    private bool HideLabel { get; set; } = false;
+    private void Toggle()
+    {
+        HideLabel = !HideLabel;
+    }
+ } 

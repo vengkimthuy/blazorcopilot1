@@ -1,82 +1,38 @@
-﻿@using BlazorCopilot1.Services
-@using BlazorCopilot1.Data
-
-@inject IJSRuntime JSRuntime
-@inject ChatService ChatService
-
-<div id="scrollbox">
-    @foreach (var item in _messages)
-    {
-        if (item.IsRequest) 
-        {
-            <div class="sent p-2 m-0 position-relative d-flex justify-content-end">
-                <p class="">@item.Body</p>
+﻿
+<RadzenRow class="rz-text-align-center" Gap="1rem">
+  <RadzenColumn Size="8" Offset="2" class="border">
+        <div class="d-flex justify-content-between rz-background-color-series-2 align-items-center">
+            <div class="px-2 py-2">
+                <RadzenImage Path="../images/robotChat.png" Style="width: 50px; height: 50px" class="rounded-circle rounded bg-dark" />
             </div>
-        }
-        else 
-        {
-            <div class="received p-2 m-0 position-relative d-flex justify-content-start">
-                <p class="">@item.Body</p>
+            <RadzenText TextStyle="TextStyle.H5" class="rz-color-white "> Khmer ChatBot </RadzenText>
+            <div class="px-2 py-2">
+                <RadzenButton Icon="close" class="rz-background-color-danger-dark rounded-circle rounded bg-dark" Click="ClearChat" MouseEnter="@(args => ShowTooltip(args, new TooltipOptions(){ Position = TooltipPosition.Left }))" />
             </div>
-        }
-    }
-</div>
-<hr />
-<button class="btn btn-primary" @onclick="@ClearChat">Clear Chat</button>
-
-
-<EditForm Model="chatinput" OnValidSubmit="SubmitChat">
-<textarea id="chattextarea" style="width: 500px; height: 80px;" @bind="@chatinput.Text" @oninput="@((ChangeEventArgs e) => updateTextArea(e))" />
-</EditForm>
-
-
-@code {
-
-    private ChatInput chatinput = new();
-    private List<Message> _messages = new();
-
-    private async Task ClearChat()
-    {
-        _messages = new List<Message>();
-    }
-
-    private async Task SubmitChat()
-    {
-        Message tosend = new Message(chatinput.Text, true);
-        _messages.Add(tosend);
-        await JSRuntime.InvokeAsync<string>("UpdateScroll", "scrollbox");
-
-        Message response = await ChatService.GetResponse(_messages);
-        _messages.Add(response);
-        await JSRuntime.InvokeAsync<string>("UpdateScroll", "scrollbox");
-
-        chatinput.Text = "";
-    }
-
-
-
-    private void updateTextArea(ChangeEventArgs e)
-    {
-        chatinput.Text = e.Value!.ToString()!;
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JSRuntime.InvokeAsync<string>("addSubmitOnEnter", "chattextarea");
-        }
-    }
-
-    public class ChatInput
-    {
-        public ChatInput()
-        {
-            Text = "";
-        }
-        public string Text { get; set; }
-    }
-
-}
-
-
+        </div>
+        <div id="scrollbox">
+            @foreach (var item in _messages)
+            {
+                if (item.recipient_id == "User123") 
+                {
+                    <div class="sent p-2 m-0 position-relative d-flex justify-content-end">
+                        <RadzenText class="rz-background-color-base-500 rz-color-white p-2 rounded rz-mt-10 text-break">@item.text</RadzenText>
+                    </div>
+                }
+                if(item.recipient_id == "User")
+                {
+                    <div class="received p-2 m-0 position-relative d-flex justify-content-start align-items-start  gap-2">
+                        <RadzenImage Path="../images/robotChat.png" Style="width: 50px; height: 50px" class="rounded-circle rounded bg-dark" />
+                        <RadzenText class="rz-color-white rz-background-color-series-2 p-2 rounded text-break">@item.text</RadzenText>
+                    </div>
+                }
+            }
+        </div>
+        <div>
+            <EditForm class="d-flex gap-1 px-2 py-2" Model="chatinput" OnValidSubmit="SendMessages">
+            <RadzenTextBox Placeholder="Type a message here..." id="chattextarea" class="w-100" @bind-Value=chatinput.text @oninput="@((ChangeEventArgs e) => updateTextArea(e))" />
+            <RadzenButton Icon="send" class="rz-background-color-series-2"  Click="SendMessages" />
+            </EditForm>
+        </div>
+    </RadzenColumn>
+</RadzenRow>

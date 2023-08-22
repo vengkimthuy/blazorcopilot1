@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components.Web
-@namespace BlazorCopilot1.Pages
+@namespace BlazorChatBot.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@
     <link href="css/site.css" rel="stylesheet" />
     <link href="OpenAITest1.styles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
 <body>
@@ -31,5 +32,6 @@
 
     <script src="_framework/blazor.server.js"></script>
     <script src="~/JSHelpers.js"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
 </body>
 </html>
