@@ -1,9 +1,4 @@
-﻿
-using Azure.AI.OpenAI;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.Extensions.Options;
-using Microsoft.JSInterop;
+﻿using Microsoft.AspNetCore.Components;
 using Radzen;
 using System.Text;
 using System.Text.Json;
