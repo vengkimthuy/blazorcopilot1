@@ -1430,11 +1430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kimthuy\\Documents\\Chatbot-UI\\blazorChatBot\\BlazorChatBot.csproj",
+      "projectUniqueName": "C:\\Users\\kimthuy\\Desktop\\Chatbot-UI\\blazorChatBot\\BlazorChatBot.csproj",
       "projectName": "BlazorChatBot",
-      "projectPath": "C:\\Users\\kimthuy\\Documents\\Chatbot-UI\\blazorChatBot\\BlazorChatBot.csproj",
+      "projectPath": "C:\\Users\\kimthuy\\Desktop\\Chatbot-UI\\blazorChatBot\\BlazorChatBot.csproj",
       "packagesPath": "C:\\Users\\kimthuy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kimthuy\\Documents\\Chatbot-UI\\blazorChatBot\\obj\\",
+      "outputPath": "C:\\Users\\kimthuy\\Desktop\\Chatbot-UI\\blazorChatBot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
